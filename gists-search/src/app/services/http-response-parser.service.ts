@@ -9,15 +9,17 @@ import { map } from 'rxjs/operators';
 })
 export class HttpResponseParserService implements HttpInterceptor{
 
-  private apis = ['https://api.github.com'];
+  private apisURL = ['https://api.github.com'];
  
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
-    if(!req.url.includes(this.apis[0])) {
-      return next.handle(req);
+    for (let url of this.apisURL) {
+      if (!req.url.includes(url)) {
+        return next.handle(req);
+      }
     }
+
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {

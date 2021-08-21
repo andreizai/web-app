@@ -1,19 +1,20 @@
 <mat-accordion>
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel>
         <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{gist.updatedAt | date:'medium'}}
-            </mat-panel-title>
             <mat-panel-description>
-                {{gist.description}}
+                <b>Description:</b> {{gist.description}}
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <div>Files:</div>
-        <app-gist-fils-grid [files]="gist.files"></app-gist-fils-grid>
         <mat-divider></mat-divider>
-        <div>
-            <div>Last forks:</div>
-            <div>Ana, Are, Mere</div>
+        <div class="mat-expansion-panel-header-description gist-element-content-title"> <b>Files:</b></div>
+        <app-gist-fils-grid [files]="gist.files"></app-gist-fils-grid>
+        <div *ngIf="forksOwners.length !== 0">
+            <div class="mat-expansion-panel-header-description gist-element-content-title"> <b>Last forks:</b></div>
+            <div class="github-user-profile" *ngFor="let fork of forksOwners"> 
+                <div> {{fork.login}} </div>
+                <img class="git-avatar-img" src="{{fork.avatarUrl}}">
+            </div>
         </div>
+        <div *ngIf="forksOwners.length === 0" class="mat-expansion-panel-header-description gist-element-content-title"> <b>No forks</b></div>
     </mat-expansion-panel>
 </mat-accordion>

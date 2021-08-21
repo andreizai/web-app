@@ -2,6 +2,10 @@
     width: 100%;
 }
 
-.files-name-pointer {
+.files-name-cell {
     cursor: pointer;
+}
+
+.files-name-header {
+    width: 75%;
 }

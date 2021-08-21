@@ -1,3 +1,29 @@
 .mat-expansion-panel {
+    margin: 5px 0px 20px 0px;
+}
+
+.gist-header {
+    width: 100%;
+    display: flex;
+}
+
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+    display: initial;
+}
+
+.gist-element-content-title {
+    display: flex;
+    margin-top: 10px;
+}
+
+.git-avatar-img {
+    width: 50px;
+    height: 50px;
+}
+
+.github-user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 5px 0px;
 }

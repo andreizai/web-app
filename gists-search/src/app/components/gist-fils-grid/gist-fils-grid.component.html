@@ -1,7 +1,7 @@
 <table class="gists-files-grid" mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let file" class="files-name-pointer"(click)="onFilesClick(file)"> {{file.filename}} </td>
+        <th mat-header-cell *matHeaderCellDef class="files-name-header"> Name </th>
+        <td mat-cell *matCellDef="let file" class="files-name-cell"(click)="onFilesClick(file)"> {{file.filename}} </td>
     </ng-container>
 
     <ng-container matColumnDef="type">

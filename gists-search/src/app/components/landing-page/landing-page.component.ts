@@ -17,19 +17,14 @@ export class LandingPageComponent implements OnInit {
   constructor(private githubGist: GithubGistService) { }
 
   ngOnInit(): void {
-    // this.usernameFormControl.setValue('78yoni78');
-    this.usernameFormControl.setValue('Plunky33');
+    this.usernameFormControl.setValue('santisbon');
   }
 
   onUsernameGistSearch(): void {
-
     this.username = this.usernameFormControl.value;
     this.githubGist.getUsersGists(this.username).subscribe(
-      values => {
-        this.gists = values;
-      }
+      values => this.gists = values
     )
-    console.log(this.usernameFormControl.value);
   }
 
 }

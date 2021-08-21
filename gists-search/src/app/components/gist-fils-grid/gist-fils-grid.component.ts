@@ -14,10 +14,9 @@ export class GistFilsGridComponent implements OnInit {
 
   @Input() files: any;
 
-  dataSource = [];
+  dataSource: GistFile[] = [];
   displayedColumns: string[] = ['name', 'type'];
-  constructor(private githubGist: GithubGistService,
-    private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.parseFilesToDataSource();
@@ -33,15 +32,8 @@ export class GistFilsGridComponent implements OnInit {
   }
 
   onFilesClick(file: GistFile) {
-    // debugger;
-    // this.githubGist.getFromRawURL(file.rawUrl).subscribe()
     const dialogRed = this.dialog.open(PreviewFileDialogComponent, {
-      // position: {
-      //   top: '10px',
-      //   right: '10px'
-      // },
-      // height: '98%',
-      // width: '100vw',
+      width: '100vw',
       data: {
         file
       }
