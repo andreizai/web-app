@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { pipe } from 'rxjs';
+import { pipe, Subscription } from 'rxjs';
 import { Gist } from 'src/app/models/gist';
 import { GithubGistService } from 'src/app/services/github-gist.service';
 
@@ -9,8 +9,9 @@ import { GithubGistService } from 'src/app/services/github-gist.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, OnDestroy {
   private username: string = "";
+  private subscription: Subscription;
   usernameFormControl = new FormControl(null, [Validators.required]);
   gists: Gist[] = [];
 
@@ -20,9 +21,15 @@ export class LandingPageComponent implements OnInit {
     this.usernameFormControl.setValue('santisbon');
   }
 
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
+
   onUsernameGistSearch(): void {
+    this.subscription?.unsubscribe();
+    
     this.username = this.usernameFormControl.value;
-    this.githubGist.getUsersGists(this.username).subscribe(
+    this.subscription = this.githubGist.getUsersGists(this.username).subscribe(
       values => this.gists = values
     )
   }
