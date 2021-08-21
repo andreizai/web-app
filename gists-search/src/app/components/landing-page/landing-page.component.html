@@ -1,5 +1,5 @@
 <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="username-input">
         <mat-label>Type username</mat-label>
         <input matInput type="text" [formControl]="usernameFormControl">
         <button matSuffix mat-icon-button (click)="onUsernameGistSearch()">
@@ -8,6 +8,6 @@
     </mat-form-field>
 
     <mat-list>
-        <app-gist-element class='gist-component' *ngFor="let gist of gists" [gist]="gist"></app-gist-element>
+        <app-gist-element class="gist-component" *ngFor="let gist of gists" [gist]="gist"></app-gist-element>
     </mat-list>
 </div>

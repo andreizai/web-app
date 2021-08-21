@@ -18,7 +18,7 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     // this.usernameFormControl.setValue('78yoni78');
-    this.usernameFormControl.setValue('openpanzer');
+    this.usernameFormControl.setValue('Plunky33');
   }
 
   onUsernameGistSearch(): void {
@@ -26,7 +26,6 @@ export class LandingPageComponent implements OnInit {
     this.username = this.usernameFormControl.value;
     this.githubGist.getUsersGists(this.username).subscribe(
       values => {
-        debugger;
         this.gists = values;
       }
     )

@@ -1,13 +1,19 @@
 <mat-accordion>
     <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{gist.updatedAt | date:'medium'}}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{gist.description}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <app-gist-fils-grid [files]="gist.files"></app-gist-fils-grid>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{gist.updatedAt | date:'medium'}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{gist.description}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>Files:</div>
+        <app-gist-fils-grid [files]="gist.files"></app-gist-fils-grid>
+        <mat-divider></mat-divider>
+        <div>
+            <div>Last forks:</div>
+            <div>Ana, Are, Mere</div>
+        </div>
     </mat-expansion-panel>
 </mat-accordion>

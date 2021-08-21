@@ -1,3 +1,7 @@
 .gists-files-grid {
     width: 100%;
 }
+
+.files-name-pointer {
+    cursor: pointer;
+}

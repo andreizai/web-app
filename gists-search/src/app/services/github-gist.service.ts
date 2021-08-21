@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { camelKeys } from 'js-convert-case';
 import { Observable, of } from 'rxjs';
@@ -29,5 +29,12 @@ export class GithubGistService {
       recursive: true,
       recursiveInArray: true,
     });
+  }
+
+  getFromRawURL(url: string): Observable<any> {
+    const HTTPOptionsForText: Object = {
+      responseType: 'text'
+    }
+    return this.http.get<any>(url, HTTPOptionsForText);
   }
 }

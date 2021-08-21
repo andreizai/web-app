@@ -14,6 +14,10 @@ export class HttpResponseParserService implements HttpInterceptor{
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    debugger;
+    if(!req.url.includes(this.apis[0])) {
+      return next.handle(req);
+    }
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {

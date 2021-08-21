@@ -9,13 +9,15 @@ import { GistElementComponent } from './components/gist-element/gist-element.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpResponseParserService } from './services/http-response-parser.service';
 import { GistFilsGridComponent } from './components/gist-fils-grid/gist-fils-grid.component';
+import { PreviewFileDialogComponent } from './components/preview-file-dialog/preview-file-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     GistElementComponent,
-    GistFilsGridComponent
+    GistFilsGridComponent,
+    PreviewFileDialogComponent
   ],
   imports: [
     BrowserModule,
