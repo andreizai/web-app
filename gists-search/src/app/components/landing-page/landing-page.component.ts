@@ -10,8 +10,6 @@ import { GithubGistService } from 'src/app/services/github-gist.service';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
-
-  value = 'Clear me';
   private username: string = "";
   usernameFormControl = new FormControl(null, [Validators.required]);
   gists: Gist[] = [];
@@ -19,7 +17,8 @@ export class LandingPageComponent implements OnInit {
   constructor(private githubGist: GithubGistService) { }
 
   ngOnInit(): void {
-    this.usernameFormControl.setValue('78yoni78');
+    // this.usernameFormControl.setValue('78yoni78');
+    this.usernameFormControl.setValue('openpanzer');
   }
 
   onUsernameGistSearch(): void {

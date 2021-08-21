@@ -14,12 +14,9 @@ export class HttpResponseParserService implements HttpInterceptor{
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          // const camelCaseObject = this.remapKeysToCamelCase(event.body);
-          // return event.clone({ body: camelCaseObject });
           return event.clone({
             body: this.objectToCamel(event.body),
           });
@@ -29,19 +26,12 @@ export class HttpResponseParserService implements HttpInterceptor{
     
   }
 
-  objectToSnake(data: any): any {
-    return snakeKeys(data, {
-      recursive: true,
-      recursiveInArray: true,
-    });
-  }
-
   objectToCamel(data: any): any {
     const options = {
       recursive: true,
       recursiveInArray: true
     };
-    
+
     if (Array.isArray(data)) {
       return data.map(d => camelKeys(d, options));
     }

@@ -7,7 +7,6 @@ import { Gist } from 'src/app/models/gist';
   styleUrls: ['./gist-element.component.css']
 })
 export class GistElementComponent implements OnInit {
-
   @Input() gist: Gist;
 
   constructor() { }

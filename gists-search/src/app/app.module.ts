@@ -8,12 +8,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GistElementComponent } from './components/gist-element/gist-element.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpResponseParserService } from './services/http-response-parser.service';
+import { GistFilsGridComponent } from './components/gist-fils-grid/gist-fils-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    GistElementComponent
+    GistElementComponent,
+    GistFilsGridComponent
   ],
   imports: [
     BrowserModule,
