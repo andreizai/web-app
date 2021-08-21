@@ -43,6 +43,5 @@ Because some requests can take quite a long time, there are cases where the curr
 - When the user performs a search, and then performs a new one before the previous request is completed. In this case, unsubscribing from the previous request is performed.
 - When the user wants to view the contents of a file, but closes the dialog before the request is completed.  When closing the dialog, unsubscribing from the request is performed.
 
-## 
-
-
+## HTTP response parsing
+The objects received from `api.github.com` API have the names of the properties written in the style of snake case and for the Angular the camel case style should be used. Thus, an interceptor is implemented that captures all HTTP requests and transforms the response from the `api.github.com` API from the snake case style to camel case style.
